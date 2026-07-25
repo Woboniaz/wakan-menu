@@ -55,35 +55,11 @@
             text-decoration: underline;
         }
 
-        /* Main Container */
+        /* Main Container with 5px Top Margin */
         .container {
             max-width: 800px;
-            margin: 0 auto;
-            padding: 20px 16px;
-        }
-
-        /* Language Button */
-        .lang-toggle-wrapper {
-            display: flex;
-            justify-content: flex-end;
-            margin-bottom: 10px;
-        }
-
-        .lang-btn {
-            background: #333;
-            color: var(--text-cream);
-            border: 1px solid var(--accent-gold);
-            padding: 6px 14px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 0.85rem;
-            transition: all 0.3s ease;
-        }
-
-        .lang-btn:hover {
-            background: var(--accent-gold);
-            color: #111;
+            margin: 5px auto 0 auto; /* 5px margin below sticky banner */
+            padding: 15px 16px 20px;
         }
 
         /* 2. Hero Section */
@@ -118,21 +94,24 @@
 
         .hero-actions {
             display: flex;
-            gap: 15px;
+            gap: 12px;
             justify-content: center;
+            align-items: center;
             flex-wrap: wrap;
         }
 
         .btn {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 8px;
-            padding: 14px 24px;
+            padding: 12px 22px;
             border-radius: 30px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 1rem;
-            transition: transform 0.2s, box-shadow 0.2s;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
         }
 
         .btn:active {
@@ -142,13 +121,19 @@
         .btn-primary {
             background-color: var(--accent-gold);
             color: #111;
+            border: none;
             box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
         }
 
         .btn-secondary {
-            background-color: transparent;
+            background-color: #2a2a2a;
             color: var(--text-cream);
-            border: 2px solid var(--accent-gold);
+            border: 1.5px solid var(--accent-gold);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--accent-gold);
+            color: #111;
         }
 
         /* 3. Accordion Menu Section */
@@ -396,14 +381,8 @@
         <span data-lang="en">🚚 Local delivery available! Call directly at <a href="tel:0930601263">0930 60 12 63</a> to order.</span>
     </div>
 
+    <!-- Main Container with 5px top margin -->
     <div class="container">
-        
-        <!-- Language Switcher Button (Defaults to Amharic) -->
-        <div class="lang-toggle-wrapper">
-            <button class="lang-btn" id="langToggleBtn" onclick="toggleLanguage()">
-                🇬🇧 English
-            </button>
-        </div>
 
         <!-- 2. Hero Header -->
         <header class="hero">
@@ -414,12 +393,14 @@
                 <span data-lang="en">Authentic Ethiopian Flavors & European Dishes Delivered Right to Your Door.</span>
             </p>
             <div class="hero-actions">
+                <!-- Call To Order Button -->
                 <a href="tel:0930601263" class="btn btn-primary">
                     📞 <span data-lang="am">ደውለው ይዘዙ</span><span data-lang="en">Call to Order</span>
                 </a>
-                <a href="#menu" class="btn btn-secondary">
-                    📜 <span data-lang="am">ሜኑ ይመልከቱ</span><span data-lang="en">Explore Menu</span>
-                </a>
+                <!-- Language Toggle Button placed right next to Call to Order -->
+                <button class="btn btn-secondary" id="langToggleBtn" onclick="toggleLanguage()">
+                    🇬🇧 English
+                </button>
             </div>
         </header>
 
